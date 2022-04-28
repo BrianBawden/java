@@ -1,17 +1,41 @@
 
-
-import java.io.File;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;
 
 public class MyFamCSV {
 
-    public MyFamCSV() {
-        
+    static void famReader() {
+        try {
+            File myObj = new File("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+              String data = myReader.nextLine();
+              System.out.println(data);
+            }
+            myReader.close();
+          } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
     }
 
-    public static void main(String[] args) {
-        File myFamfile = new File ("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv");
-
-        System.out.println(myFamfile.canRead());
-    }
-        
+    static void famWriter() {
+        try {
+            FileWriter myWriter = new FileWriter("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.txt");
+            myWriter.write("Hi Brian.");
+            myWriter.close();
+            }catch(IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+    
+  public static void main(String[] args) {
+    famReader();
+    famWriter();
+    famReader();
+  }
 }
