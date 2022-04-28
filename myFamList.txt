@@ -1,1 +1,4 @@
-Hi Brian.
+Name, Relation, Phone Number, State
+Merrill, Father, 801-722-8370, UT
+Laura, Mother, 801-722-4157, UT
+Brian, Me, 770-880-5838, GA
