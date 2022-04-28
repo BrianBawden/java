@@ -25,7 +25,16 @@ public class MyFamCSV {
     static void famWriter() {
         try {
             FileWriter myWriter = new FileWriter("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.txt", true);
+            myWriter.write("\n");
             myWriter.write(famInput("Name"));
+            myWriter.write(", ");
+            myWriter.write(famInput("Relation"));
+            myWriter.write(", ");
+            myWriter.write(famInput("Phone Number"));
+            myWriter.write(", ");
+            myWriter.write(famInput("State"));
+            
+
             myWriter.close();
             }catch(IOException e) {
                 System.out.println("An error occurred.");
