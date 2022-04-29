@@ -9,7 +9,7 @@ public class MyFamCSV {
 
     static void famReader() {
         try {
-            File myObj = new File("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.txt");
+            File myObj = new File("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
@@ -24,7 +24,7 @@ public class MyFamCSV {
 
     static void famWriter() {
         try {
-            FileWriter myWriter = new FileWriter("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.txt", true);
+            FileWriter myWriter = new FileWriter("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv", true);
             myWriter.write("\n");
             myWriter.write(famInput("Name"));
             myWriter.write(", ");
