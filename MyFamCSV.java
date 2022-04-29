@@ -7,9 +7,11 @@ import java.io.IOException;
 
 public class MyFamCSV {
 
+  public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
+
     static void famReader() {
         try {
-            File myObj = new File("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv");
+            File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
@@ -24,7 +26,7 @@ public class MyFamCSV {
 
     static void famWriter() {
         try {
-            FileWriter myWriter = new FileWriter("C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv", true);
+            FileWriter myWriter = new FileWriter(path, true);
             myWriter.write("\n");
             myWriter.write(famInput("Name"));
             myWriter.write(", ");
@@ -46,6 +48,7 @@ public class MyFamCSV {
         Scanner myInput = new Scanner(System.in);
         System.out.println("Enter " + data + ": ");
         return myInput.nextLine();
+
       }
     
   public static void main(String[] args) {
