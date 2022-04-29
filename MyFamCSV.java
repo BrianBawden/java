@@ -8,52 +8,59 @@ import java.io.IOException;
 public class MyFamCSV {
 
   public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
+  private static Scanner x;
 
-    static void famReader() {
-        try {
-            File myObj = new File(path);
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-              String data = myReader.nextLine();
-              System.out.println(data);
-            }
-            myReader.close();
-          } catch (FileNotFoundException e) {
+
+  static void famReader() 
+  {
+    try {
+        File myObj = new File(path);
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+          String data = myReader.nextLine();
+          System.out.println(data);
+        }
+        myReader.close();
+      } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+      }
+  }
+
+  static void famWriter() 
+    {
+      try 
+      {
+        FileWriter myWriter = new FileWriter(path, true);
+
+        myWriter.write("\n");
+        myWriter.write(famInput("Name"));
+        myWriter.write(", ");
+        myWriter.write(famInput("Relation"));
+        myWriter.write(", ");
+        myWriter.write(famInput("Phone Number"));
+        myWriter.write(", ");
+        myWriter.write(famInput("State"));
+        myWriter.close();
+        }
+        catch(IOException e)
+        {
             System.out.println("An error occurred.");
             e.printStackTrace();
-          }
+        }
     }
 
-    static void famWriter() {
-        try {
-            FileWriter myWriter = new FileWriter(path, true);
-            myWriter.write("\n");
-            myWriter.write(famInput("Name"));
-            myWriter.write(", ");
-            myWriter.write(famInput("Relation"));
-            myWriter.write(", ");
-            myWriter.write(famInput("Phone Number"));
-            myWriter.write(", ");
-            myWriter.write(famInput("State"));
-            
-
-            myWriter.close();
-            }catch(IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-        }
-
-      static String famInput(String data) {
-        Scanner myInput = new Scanner(System.in);
-        System.out.println("Enter " + data + ": ");
-        return myInput.nextLine();
-
-      }
+  static String famInput(String data)
+    {
+    Scanner myInput = new Scanner(System.in);
+    System.out.println("Enter " + data + ": ");
+    return myInput.nextLine();
+    }
     
-  public static void main(String[] args) {
-    famReader();
-    famWriter();
-    famReader();
-  }
+  public static void main(String[] args)
+    {
+      famReader();
+      famWriter();
+      famReader();
+    }
 }
