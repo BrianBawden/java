@@ -7,6 +7,13 @@ import java.io.IOException;
 
 public class MyFamCSV {
 
+  public static void main(String[] args)
+  {
+    famReader();
+    famWriter();
+    famReader();
+  }
+
   public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
   private static Scanner x;
 
@@ -56,11 +63,5 @@ public class MyFamCSV {
     System.out.println("Enter " + data + ": ");
     return myInput.nextLine();
     }
-    
-  public static void main(String[] args)
-    {
-      famReader();
-      famWriter();
-      famReader();
-    }
+
 }
