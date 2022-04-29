@@ -5,19 +5,20 @@ import java.util.Scanner; // Import the Scanner class to read text files
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;
 
-public class MyFamCSV {
+public class MyFamCSV 
+{
+  public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
+  private static Scanner x;
+
 
   public static void main(String[] args)
   {
     famReader();
     famWriter();
-    famReader();
   }
 
-  public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
-  private static Scanner x;
 
-
+  
   static void famReader() 
   {
     try {
@@ -33,6 +34,7 @@ public class MyFamCSV {
         e.printStackTrace();
       }
   }
+
 
   static void famWriter() 
     {
@@ -57,6 +59,7 @@ public class MyFamCSV {
         }
     }
 
+
   static String famInput(String data)
     {
     Scanner myInput = new Scanner(System.in);
@@ -65,3 +68,51 @@ public class MyFamCSV {
     }
 
 }
+
+
+
+
+// import javax.swing.JOptionPane;
+
+
+// public static void readRecord(String searchTerm, String filePath)
+//   {
+//     boolean found = false;
+//     String name = "";
+//     String relation = "";
+//     String phone = "";
+//     String state = "";
+
+//     try
+//     {
+//       x = new Scanner(new File(path));
+//       x.useDelimiter(",\n");
+
+//       while (x.hasNext() && !found)
+//         {
+//           name = x.next();
+//           relation = x.next();
+//           phone = x.next();
+//           state = x.next();
+
+//           if(name.equals(searchTerm))
+//             {
+//               found = true;
+//             }
+//           if (found)
+//             {
+//               JOptionPane.showMessageDialog(null, name + relation + phone + state);
+//             }
+//           else
+//             {
+//               JOptionPane.showMessageDialog(null, "Name Not found");
+
+//             }
+//         } 
+//     }
+//     catch(Exception e)
+//       {
+//         JOptionPane.showMessageDialog(null, "Error: File not found.");
+//       }
+//   }
+
