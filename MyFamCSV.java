@@ -13,9 +13,9 @@ public class MyFamCSV
 
   public static void main(String[] args)
   {
-    famReader();
+    // famReader();
     // famWriter();
-    searchRecord("Sam", path);
+    searchRecord("Brian", path);
   }
 
 
@@ -59,10 +59,7 @@ public class MyFamCSV
         if(name.equals(searchTerm))
         {
           found = true;
-          System.out.println("Found name.");
-        }else
-        {
-          System.out.println(("Name not found."));
+          System.out.println(name + relation + phoneNumber + state);
         }
 
       }
