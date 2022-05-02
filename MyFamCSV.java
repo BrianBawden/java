@@ -14,7 +14,7 @@ public class MyFamCSV
 
   public static void main(String[] args)
   {
-    // famReader();
+    famReader();
     // famWriter();
     searchRecord(path);
   }
@@ -70,7 +70,7 @@ public class MyFamCSV
     }
     catch (Exception e)
     {
-
+      System.out.println("An error occurred while searching.");
 
     }
   }
@@ -94,7 +94,7 @@ public class MyFamCSV
         }
         catch(IOException e)
         {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred while writing.");
             e.printStackTrace();
         }
     }
@@ -109,50 +109,4 @@ public class MyFamCSV
 
 }
 
-
-
-
-// import javax.swing.JOptionPane;
-
-
-// public static void readRecord(String searchTerm, String filePath)
-//   {
-//     boolean found = false;
-//     String name = "";
-//     String relation = "";
-//     String phone = "";
-//     String state = "";
-
-//     try
-//     {
-//       x = new Scanner(new File(path));
-//       x.useDelimiter(",\n");
-
-//       while (x.hasNext() && !found)
-//         {
-//           name = x.next();
-//           relation = x.next();
-//           phone = x.next();
-//           state = x.next();
-
-//           if(name.equals(searchTerm))
-//             {
-//               found = true;
-//             }
-//           if (found)
-//             {
-//               JOptionPane.showMessageDialog(null, name + relation + phone + state);
-//             }
-//           else
-//             {
-//               JOptionPane.showMessageDialog(null, "Name Not found");
-
-//             }
-//         } 
-//     }
-//     catch(Exception e)
-//       {
-//         JOptionPane.showMessageDialog(null, "Error: File not found.");
-//       }
-//   }
 
