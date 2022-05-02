@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;
+import java.io.Reader;
 
 public class MyFamCSV 
 {
@@ -15,10 +16,10 @@ public class MyFamCSV
   {
     // famReader();
     // famWriter();
-    searchRecord("Brian", path);
+    searchRecord(path);
   }
 
-
+////////////////////////Modules///////////////////////////
   
   static void famReader() 
   {
@@ -36,8 +37,11 @@ public class MyFamCSV
       }
   }
 
-  public static void searchRecord(String searchTerm, String filePath)
+  public static void searchRecord(String filePath)
   {
+    Scanner userInput = new Scanner(System.in);
+    System.out.println("Enter search: ");
+    String userI = userInput.nextLine();
     boolean found = false;
     String name = "";
     String relation = "";
@@ -56,7 +60,7 @@ public class MyFamCSV
         phoneNumber = x.next();
         state = x.next();
 
-        if(name.equals(searchTerm))
+        if(name.equals(userI))
         {
           found = true;
           System.out.println(name + relation + phoneNumber + state);
