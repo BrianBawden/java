@@ -1,22 +1,31 @@
 
+import java.io.BufferedWriter;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Reader;
 
 public class MyFamCSV 
 {
   public static String path = "C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv";
-  private static Scanner x;
+  private static Scanner sc;
 
 
   public static void main(String[] args)
   {
-    famReader();
-    // famWriter();
-    searchRecord(path);
+    // String newName = "Sam";
+    // String editName = "Brian";
+    // String newRelation = "Cousion";
+    // String newPhone = "55555";
+    // String newState = "UT";
+    
+    editRecord("Brian", "Me", "770-880-5838", "GA");
+    // famReader();
+    // // famWriter();
+    // searchRecord(path);
   }
 
 ////////////////////////Modules///////////////////////////
@@ -50,15 +59,15 @@ public class MyFamCSV
 
     try
     {
-      x = new Scanner(new File(filePath));
-      x.useDelimiter("[,\n]");
+      sc = new Scanner(new File(filePath));
+      sc.useDelimiter("[,\n]");
 
-      while (x.hasNext() && !found)
+      while (sc.hasNext() && !found)
       {
-        name = x.next();
-        relation = x.next();
-        phoneNumber = x.next();
-        state = x.next();
+        name = sc.next();
+        relation = sc.next();
+        phoneNumber = sc.next();
+        state = sc.next();
 
         if(name.equals(userI))
         {
@@ -97,6 +106,61 @@ public class MyFamCSV
             System.out.println("An error occurred while writing.");
             e.printStackTrace();
         }
+    }
+
+
+    public static void editRecord(String name, String relation, String phoneNumber, String state)
+    {
+      String tempFile = "temp.csv";
+      File oldFile = new File(path);
+      File newFile = new File(tempFile);
+      String Name = "";
+      String Relation = "";
+      String PhoneNumber = "";
+      String State = "";
+
+      String newName = "Sam";
+      String editName = "Brian";
+      String newRelation = "Cousion";
+      String newPhone = "55555";
+      String newState = "UT";
+
+
+      try
+      {
+        FileWriter fw = new FileWriter(tempFile, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter pw = new PrintWriter(bw);
+        sc = new Scanner(new File(path));
+        sc.useDelimiter("[,\n]");
+
+        while(sc.hasNext())
+        {
+          Name = sc.next();
+          Relation = sc.next();
+          PhoneNumber = sc.next();
+          State = sc.next();
+          if(Name.equals(editName))
+          {
+            pw.println(newName + ", " + newRelation + ", " + newPhone + ", " + newState);
+          }
+          else
+          {
+            pw.print(Name + ", " + Relation + ", " + PhoneNumber + ", " + State);
+          }
+        }
+        sc.close();
+        pw.flush();
+        pw.close();
+        oldFile.delete();
+        File dump = new File(path);
+        newFile.renameTo(dump);
+
+      }
+      catch(Exception e)
+      {
+        System.out.println("Error editing record.");
+      }
     }
 
 
