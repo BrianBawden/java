@@ -1,1 +1,3 @@
-"C:\\Users\\brian\\OneDrive\\Desktop\\java\\myFamList.csv"
+
+        phoneNumber = x.next();
+        state = x.next();

@@ -15,6 +15,7 @@ public class MyFamCSV
   {
     famReader();
     // famWriter();
+    searchRecord("Sam", path);
   }
 
 
@@ -33,6 +34,44 @@ public class MyFamCSV
         System.out.println("An error occurred.");
         e.printStackTrace();
       }
+  }
+
+  public static void searchRecord(String searchTerm, String filePath)
+  {
+    boolean found = false;
+    String name = "";
+    String relation = "";
+    String phoneNumber = "";
+    String state = "";
+
+    try
+    {
+      x = new Scanner(new File(filePath));
+      x.useDelimiter("[,\n]");
+
+      while (x.hasNext() && !found)
+      {
+        name = x.next();
+        relation = x.next();
+        phoneNumber = x.next();
+        state = x.next();
+
+        if(name.equals(searchTerm))
+        {
+          found = true;
+          System.out.println("Found name.");
+        }else
+        {
+          System.out.println(("Name not found."));
+        }
+
+      }
+    }
+    catch (Exception e)
+    {
+
+
+    }
   }
 
 
