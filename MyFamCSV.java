@@ -14,7 +14,7 @@ public class MyFamCSV
   public static void main(String[] args)
   {
     famReader();
-    famWriter();
+    // famWriter();
   }
 
 
