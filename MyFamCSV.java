@@ -23,8 +23,7 @@ public class MyFamCSV
     // String newState = "UT";
     
     // editRecord("Brian", "Me", "770-880-5838", "GA");
-    famReader();
-    famWriter();
+    editRecord();
     famReader();
 
     // searchRecord(path);
@@ -116,26 +115,30 @@ public class MyFamCSV
         }
     }
 
-
-    public static void editRecord(String name, String relation, String phoneNumber, String state)
+    //This will ask the user for the name to edit and get their input.
+    public static void editRecord()
     {
       famReader();
 
       String tempFile = "temp.csv";
       File oldFile = new File(path);
       File newFile = new File(tempFile);
-      String Name = "";
-      String Relation = "";
-      String PhoneNumber = "";
-      String State = "";
+      String name = "";
+      String relation = "";
+      String phoneNumber = "";
+      String state = "";
 
-      Scanner nName = new Scanner(System.in);
-      System.out.println("\nEnter name to edit: ");
-      String newName = "Sam"; 
-      String editName = nName.nextLine();
-      String newRelation = "Cousion";
-      String newPhone = "55555";
-      String newState = "UT";
+      System.out.println("Enter the name to edit: ");
+      String editName = userInput();
+      System.out.println("\nEnter name: ");
+      String newName = userInput(); 
+      String eName = editName;
+      System.out.println("\nEnter relation: ");
+      String newRelation = userInput();
+      System.out.println("\nEnter phone number: ");
+      String newPhone = userInput();
+      System.out.println("\nEnter state: ");
+      String newState = userInput();
 
 
       try
@@ -148,17 +151,17 @@ public class MyFamCSV
 
         while(sc.hasNext())
         {
-          Name = sc.next();
-          Relation = sc.next();
-          PhoneNumber = sc.next();
-          State = sc.next();
-          if(Name.equals(editName))
+          name = sc.next();
+          relation = sc.next();
+          phoneNumber = sc.next();
+          state = sc.next();
+          if(name.equals(eName))
           {
             pw.println(newName + ", " + newRelation + ", " + newPhone + ", " + newState);
           }
           else
           {
-            pw.print(Name + ", " + Relation + ", " + PhoneNumber + ", " + State);
+            pw.print(name + ", " + relation + ", " + phoneNumber + ", " + state);
           }
         }
         sc.close();
