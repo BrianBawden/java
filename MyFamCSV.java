@@ -123,10 +123,10 @@ public class MyFamCSV
       String tempFile = "temp.csv";
       File oldFile = new File(path);
       File newFile = new File(tempFile);
-      String Name = "";
-      String Relation = "";
-      String PhoneNumber = "";
-      String State = "";
+      String name = "";
+      String relation = "";
+      String phoneNumber = "";
+      String state = "";
 
       System.out.println("Enter the name to edit: ");
       String editName = userInput();
@@ -151,17 +151,17 @@ public class MyFamCSV
 
         while(sc.hasNext())
         {
-          Name = sc.next();
-          Relation = sc.next();
-          PhoneNumber = sc.next();
-          State = sc.next();
-          if(Name.equals(eName))
+          name = sc.next();
+          relation = sc.next();
+          phoneNumber = sc.next();
+          state = sc.next();
+          if(name.equals(eName))
           {
             pw.println(newName + ", " + newRelation + ", " + newPhone + ", " + newState);
           }
           else
           {
-            pw.print(Name + ", " + Relation + ", " + PhoneNumber + ", " + State);
+            pw.print(name + ", " + relation + ", " + phoneNumber + ", " + state);
           }
         }
         sc.close();
