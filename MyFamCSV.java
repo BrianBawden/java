@@ -22,9 +22,11 @@ public class MyFamCSV
     // String newPhone = "55555";
     // String newState = "UT";
     
-    editRecord("Brian", "Me", "770-880-5838", "GA");
-    // famReader();
-    // // famWriter();
+    // editRecord("Brian", "Me", "770-880-5838", "GA");
+    famReader();
+    famWriter();
+    famReader();
+
     // searchRecord(path);
   }
 
@@ -94,13 +96,17 @@ public class MyFamCSV
         FileWriter myWriter = new FileWriter(path, true);
 
         myWriter.write("\n");
-        myWriter.write(famInput("Name"));
+        System.out.println("Enter the new name: ");
+        myWriter.write(userInput());
         myWriter.write(", ");
-        myWriter.write(famInput("Relation"));
+        System.out.println("Enter the new relation: ");
+        myWriter.write(userInput());
         myWriter.write(", ");
-        myWriter.write(famInput("Phone Number"));
+        System.out.println("Enter the new phone number: ");
+        myWriter.write(userInput());
         myWriter.write(", ");
-        myWriter.write(famInput("State"));
+        System.out.println("Enter the new state: ");
+        myWriter.write(userInput());
         myWriter.close();
         }
         catch(IOException e)
@@ -169,12 +175,11 @@ public class MyFamCSV
       }
     }
 
-
-  static String famInput(String data)
+  // This method is used to return user input.
+  static String userInput()
     {
-    Scanner myInput = new Scanner(System.in);
-    System.out.println("Enter " + data + ": ");
-    return myInput.nextLine();
+    Scanner userI = new Scanner(System.in);
+    return userI.nextLine();
     }
 
 }
