@@ -169,7 +169,7 @@ public class MyFamCSV
       }
     }
 
-
+  // This method is used to return user input.
   static String famInput(String data)
     {
     Scanner myInput = new Scanner(System.in);
