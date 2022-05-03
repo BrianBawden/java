@@ -28,8 +28,9 @@ public class MyFamCSV
     // searchRecord(path);
   }
 
-////////////////////////Modules///////////////////////////
+////////////////////////Methods///////////////////////////
   
+  // This method will print out the data in the file
   static void famReader() 
   {
     try {
@@ -46,6 +47,7 @@ public class MyFamCSV
       }
   }
 
+  // This method will search for the name entered my the user.
   public static void searchRecord(String filePath)
   {
     Scanner userInput = new Scanner(System.in);
@@ -84,7 +86,7 @@ public class MyFamCSV
     }
   }
 
-
+  // This method of the MyFamCSV class is used to append a new entry to the csv file
   static void famWriter() 
     {
       try 
@@ -111,6 +113,8 @@ public class MyFamCSV
 
     public static void editRecord(String name, String relation, String phoneNumber, String state)
     {
+      famReader();
+
       String tempFile = "temp.csv";
       File oldFile = new File(path);
       File newFile = new File(tempFile);
@@ -119,8 +123,10 @@ public class MyFamCSV
       String PhoneNumber = "";
       String State = "";
 
-      String newName = "Sam";
-      String editName = "Brian";
+      Scanner nName = new Scanner(System.in);
+      System.out.println("\nEnter name to edit: ");
+      String newName = "Sam"; 
+      String editName = nName.nextLine();
       String newRelation = "Cousion";
       String newPhone = "55555";
       String newState = "UT";
