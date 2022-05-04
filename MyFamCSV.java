@@ -16,17 +16,8 @@ public class MyFamCSV
 
   public static void main(String[] args)
   {
-    // String newName = "Sam";
-    // String editName = "Brian";
-    // String newRelation = "Cousion";
-    // String newPhone = "55555";
-    // String newState = "UT";
-    
-    // editRecord("Brian", "Me", "770-880-5838", "GA");
     editRecord();
     famReader();
-
-    // searchRecord(path);
   }
 
 ////////////////////////Methods///////////////////////////
