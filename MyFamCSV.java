@@ -123,7 +123,6 @@ public class MyFamCSV
       String editName = userInput();
       System.out.println("\nEnter name: ");
       String newName = userInput(); 
-      String eName = editName;
       System.out.println("\nEnter relation: ");
       String newRelation = userInput();
       System.out.println("\nEnter phone number: ");
@@ -146,7 +145,7 @@ public class MyFamCSV
           relation = sc.next();
           phoneNumber = sc.next();
           state = sc.next();
-          if(name.equals(eName))
+          if(name.equals(editName))
           {
             pw.println(newName + ", " + newRelation + ", " + newPhone + ", " + newState);
           }
@@ -166,6 +165,8 @@ public class MyFamCSV
       catch(Exception e)
       {
         System.out.println("Error editing record.");
+        e.printStackTrace();
+
       }
     }
 
